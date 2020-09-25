@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      {{title}}
+    </title>
+    <meta charset="UTF-8"/>
+    {% if description %}
+      <meta name="description" content="{{description}}"/>
+    {% endif %}
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/style.css?v={% version %}"/>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="alternate icon" href="/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    {% block head %}{% endblock %}
+    <script src="/js/alpine.js?v={% version %}"></script>
+  </head>
+  <body class="dark">
+    {% include "setColorMode.njk" %}
+    <a class="sr-only" href="#main-content">Skip to main content</a>
+    <section class="page flex flex-col min-h-screen p-2 relative">
+      {% include "header.njk" %}
+      <main id="main-content" class="flex-1 bg-grey-light dark:bg-black text-grey-darkest dark:text-grey-dark p-4 lg:p-8">
+        {{ content | safe }}
+      </main>
+      <footer class="bg-white dark:bg-black-light flex flex-col items-center p-4 text-grey-darkest dark:text-grey-dark xs:flex-row xs:justify-between">
+        <nav class="flex">
+          <a class="h-6 w-6 mr-4 hover:text-teal transform hover:-translate-y-1 transition-transform duration-200" href="https://instagram.com/davidleininger">
+            {% include "icons/instagram.njk" %}
+          </a>
+          <a class="h-6 w-6 mr-4 hover:text-teal transform hover:-translate-y-1 transition-transform duration-200" href="https://twitter.com/davidleininger">
+            {% include "icons/twitter.njk" %}
+          </a>
+          <a class="h-6 w-6 mr-4 hover:text-teal transform hover:-translate-y-1 transition-transform duration-200" href="https://github.com/davidleininger">
+            {% include "icons/github.njk" %}
+          </a>
+          <a class="h-6 w-6 mr-4 hover:text-teal transform hover:-translate-y-1 transition-transform duration-200" href="https://dribbble.com/davidleininger">
+            {% include "icons/dribbble.njk" %}
+          </a>
+          <a class="h-6 w-6 hover:text-teal transform hover:-translate-y-1 transition-transform duration-200" href="https://codepen.io/davidleininger">
+            {% include "icons/codepen.njk" %}
+          </a>
+        </nav>
+        <p class="m-0 mt-4 xs:mt-0" x-data="{year: new Date().getFullYear() }">&copy; David Leininger <span x-text="year"></span></p>
+      </footer>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+---
+layout: base
+---
+
+<article class="prose prose-xl">
+  <a href="/work">&larr; Back to Work</a>
+  {% if pageTitle %}<h1 class="text-3xl text-black dark:text-white">{{ pageTitle }}</h1>{% endif %}
+  {{ content | safe }}
+  <img src="{{img}}" />
+</article>

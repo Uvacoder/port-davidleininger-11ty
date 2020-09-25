@@ -1,0 +1,5 @@
+[
+  { "url": "/about" , "text": "about"},
+  { "url": "/work" , "text": "work"},
+  { "url": "/contact" , "text": "contact"}
+]

@@ -1,0 +1,8 @@
+---
+layout: base
+---
+
+<article>
+  {% if pageTitle %}<h1 class="text-3xl text-black dark:text-white">{{ pageTitle }}</h1>{% endif %}
+  {{ content | safe }}
+</article>

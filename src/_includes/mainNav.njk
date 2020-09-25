@@ -1,0 +1,27 @@
+<section class="relative flex justify-end items-center ml-auto">
+  <nav x-data="{ navIsOpen: false }" @click.away="{ navIsOpen = false }" class="top-level-nav flex items-center">
+    <button class="toggle sm:hidden flex justify-center items-center h-10 w-10 flex-shrink-0 relative" @click="navIsOpen = !navIsOpen" :aria-expanded="navIsOpen.toString()">{% include "toggleNav.njk" %}</button>
+    <ul class="flex items-center justify-around pointer-events-none bg-grey-darkest opacity-0 top-100 right-0 absolute sm:pointer-events-auto sm:opacity-100 sm:static sm:top-auto sm:left-auto sm:w-auto sm:justify-end sm:bg-transparent" :class="{'opacity-100 translate-y-0 pointer-events-auto text-white': navIsOpen}">
+      {%- for link in navLinks %}
+        <li>
+          <a href="{{ link.url }}" class="sm:px-2 h-10 flex items-center relative" data-link="{{ link.text }}">{{ link.text }}</a>
+        </li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  <button x-data="colorMode()" x-init="setMode" @click="changeMode" class="toggle flex justify-center items-center h-10 w-10 flex-shrink-0 relative">{% include "toggleColorMode.njk" %}</button>
+</section>
+<script>
+  function colorMode() {
+    return {
+      isDark: dark,
+      changeMode() {
+        this.isDark = !this.isDark
+        toggleDarkMode(this.isDark)
+      },
+      setMode() {
+        this.isDark = dark
+      }
+    }
+  }
+</script>

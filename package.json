@@ -1,0 +1,24 @@
+{
+  "name": "leininger-tech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve & postcss src/css/style.css --o _tmp/style.css --watch",
+    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss src/css/style.css --o _site/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "alpinejs": "^2.6.0",
+    "html-minifier": "^4.0.0",
+    "postcss-clean": "^1.1.0",
+    "postcss-cli": "^7.1.2",
+    "tailwindcss": "^1.8.10"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.2.0"
+  }
+}

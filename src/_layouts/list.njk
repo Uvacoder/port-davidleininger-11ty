@@ -1,0 +1,9 @@
+---
+layout: base
+---
+
+<article class="prose dark:prose-dark prose-xl">
+  <a href="/lists">&larr; Back to Lists</a>
+  {% if pageTitle %}<h1 class="text-3xl text-black dark:text-white">{{ pageTitle }}</h1>{% endif %}
+  {{ content | safe }}
+</article>

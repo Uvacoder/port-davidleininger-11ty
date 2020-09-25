@@ -1,0 +1,14 @@
+---
+title: leininger.tech - Work
+pageTitle: Things I've Built
+layout: default
+---
+
+<section class="prose dark:prose-dark prose-xl">
+  <p>Logos, Sites, and Things</p>
+  <ul>
+    {%- for item in collections.work %}
+      <li><a href="{{ item.url }}">{{item.data.title}}</a></li>
+    {% endfor -%}
+    </ul>
+</section>

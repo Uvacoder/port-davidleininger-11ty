@@ -1,0 +1,11 @@
+---
+title: leininger.tech - lists
+pageTitle: A List of Lists
+layout: default
+---
+
+<ul>
+{%- for list in collections.lists %}
+  <li><a href="{{ list.url }}">{{list.data.pageTitle}}</a></li>
+{% endfor -%}
+</ul>
