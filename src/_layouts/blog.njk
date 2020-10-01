@@ -2,8 +2,11 @@
 layout: base
 ---
 
-<article>
+<article class="mx-auto max-w-4xl prose dark:prose-dark">
   <a href="/blog">&larr; Back to Blog</a>
-  {% if pageTitle %}<h1 class="text-3xl text-black dark:text-white">{{ pageTitle }}</h1>{% endif %}
+  {% if tags.includes("til") %}
+  <a href="/today-i-learned">&larr; Back to Today I Learned</a>
+  {% endif %}
+  {% if pageTitle %}<h1 class="text-3xl text-black dark:text-white">{{ pageTitle }}{% if tags.includes("til") %} <span class="text-teal-dark dark:text-teal text-sm">TIL #{{ TILIndex }}</span>{% endif %}</h1>{% endif %}
   {{ content | safe }}
 </article>

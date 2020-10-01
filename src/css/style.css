@@ -85,7 +85,7 @@ article a:hover, .prose a:hover {
   position: absolute;
   top: 0;
   transform: translate3d(0, -100%, 0);
-  transition: transform .2s ease;
+  transition: transform .2s ease-in;
   width: 100%;
 }
 button.toggle {
@@ -100,6 +100,7 @@ button.toggle:after {
 }
 .top-level-nav a:hover::after, button.toggle:hover::after, .top-level-nav a:focus::after, button.toggle:focus::after {
   transform: translateY(0);
+  transition: transform .2s ease-out;
 }
 /* ---
   Logo
@@ -141,6 +142,9 @@ button.toggle:after {
   outline-offset: 2px;
   z-index: 10;
 }
+/* ---
+  Last Name
+--- */
 .yo {
   font-family: 'Roboto Mono', monospace;
 }
@@ -153,36 +157,219 @@ button.toggle:after {
 }
 .say-my-name:hover{
   animation: sayMyName 0.2s;
+  color: var(--bg);
   cursor: help;
 }
 .say-my-name::after {
-  background: var(--bg);
   color: var(--primary);
   content: 'Lining-er';
   left: 0;
   display: inline-block;
   opacity: 0;
   position: absolute;
-  transition: opacity 0.1s 0.1s;
+  transition: opacity 0.2s;
 }
 .say-my-name:hover::after {
   opacity: 1;
   display: inline-block;
 }
 @keyframes sayMyName {
-  from { transform: skewX(-15deg) skewY(-2deg); color: var(--primary); }
-  20% { transform: skewX(15deg) skewY(2deg); color: var(--accent-dark); }
-  40% { transform: skewX(-15deg) skewY(-2deg); color: var(--primary); }
-  60% { transform: skewX(15deg) skewY(2deg); color: var(--accent);  }
-  80% { transform: skewX(-15deg) skewY(-2deg); color: var(--accent-dark); }
-  to { transform: skewX(0deg) skewY(0deg); color: var(--base); }
+  from { transform: skewX(-12deg) skewY(-1deg); color: var(--primary); }
+  20% { transform: skewX(12deg) skewY(1deg); color: var(--accent-dark); }
+  40% { transform: skewX(-12deg) skewY(-1deg); color: var(--primary); }
+  60% { transform: skewX(12deg) skewY(1deg); color: var(--accent);  }
+  80% { transform: skewX(-12deg) skewY(-1deg); color: var(--accent-dark); }
+  to { transform: skewX(0deg) skewY(0deg); color: var(--bg); }
 }
 @keyframes goodLuck {
-  from { transform: skewX(-15deg) skewY(-2deg); color: var(--accent-dark); }
-  20% { transform: skewX(15deg) skewY(2deg); color: var(--accent); }
-  40% { transform: skewX(-15deg) skewY(-2deg); color: var(--primary); }
-  60% { transform: skewX(15deg) skewY(2deg); color: var(--accent-dark);  }
-  80% { transform: skewX(-15deg) skewY(-2deg); color: var(--accent); }
+  from { transform: skewX(-12deg) skewY(-1deg); color: var(--accent-dark); }
+  20% { transform: skewX(12deg) skewY(1deg); color: var(--accent); }
+  40% { transform: skewX(-12deg) skewY(-1deg); color: var(--primary); }
+  60% { transform: skewX(12deg) skewY(1deg); color: var(--accent-dark);  }
+  80% { transform: skewX(-12deg) skewY(-1deg); color: var(--accent); }
   to { transform: skewX(0deg) skewY(0deg); color: var(--base); }
 }
+
+
+/* ---
+  Prism
+--- */
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/*********************************************************
+* General
+*/
+:root {
+  --code-bg: #0f1c23;
+  --comment: #65737e;
+  --highlight: #4f5b66;
+  --selected: #356367;
+  --punctuation: #5fb3b3;
+  --primary: #5fb3b3;
+  --operator: #5fb3b3;
+  --keyword: #c5a5c5;
+  --constant: #eb9a6d;
+  --selector: #99c794;
+  --string: #99c794;
+  --foreground: #d8dee9;
+  --function: #5a9bcf;
+}
+.language-html {
+  --constant: #ed6f7d;
+  --selector: #c5a5c5;
+  --operator: #99c794;
+  --keyword: #99c794;
+}
+.language-css, .language-scss {
+  --foreground: #eb9a6d;
+  --constant: #fac863;
+  --selector: #ed6f7d;
+  --operator: #99c794;
+}
+.dark {
+  --code-bg: #1b2b34;
+}
+pre[class*="language-"],
+code[class*="language-"] {
+  color: var(--foreground);
+  font-size: 0.875rem;
+  text-shadow: none;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: var(--selected);
+}
+@media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+}
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  background: var(--code-bg);
+}
+.prose :not(pre) > code[class*="language-"] {
+  padding: 0.1em 0.5em;
+  border-radius: 0.3em;
+  color: var(--foreground);
+  background: var(--code-bg);
+}
+.prose :not(pre) > code {
+  padding: 0.1em 0.5em;
+  border-radius: 0.3em;
+  color: var(--accent) !important;
+  background: var(--code-bg);
+}
+.prose code::before, .prose code::after{
+  display:none;
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: 0.7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--comment);
+}
+.token.punctuation {
+  color: var(--punctuation);
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--constant);
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--selector);
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: var(--operator);
+  background: var(--code-bg);
+}
+.token.atrule .token.rule,
+.token.attr-value,
+.token.keyword {
+  color: var(--keyword);
+}
+.token.function {
+  color: var(--function);
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: var(--foreground);
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+.token.atrule {
+  color: var(--foreground);
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: var(--highlight);
+  box-shadow: inset 5px 0 0 var(--primary);
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
 @tailwind utilities;
