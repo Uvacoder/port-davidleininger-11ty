@@ -5,7 +5,7 @@
   Global
 --- */
 :root {
-  --base: theme('colors.black');
+  --base: theme('colors.black-light');
   --bg: theme('colors.grey-light');
   --primary: theme('colors.teal-dark');
   --accent: theme('colors.purple');
@@ -13,7 +13,7 @@
   --hover: theme('colors.purple-dark');
 }
 .dark {
-  --base: theme('colors.white');
+  --base: theme('colors.grey');
   --bg: theme('colors.black');
   --primary: theme('colors.teal');
   --accent: theme('colors.yellow');
@@ -23,7 +23,7 @@
 html {
   background: linear-gradient(to top, #5fb3b3 50%, #1A8384 50%);
 }
-p{ margin-bottom: 0.5rem }
+p{ margin-bottom: 0.5rem; line-height: 1.75; }
 ::selection {
   background: rgba(197, 165, 197, .5);
 }
@@ -49,17 +49,48 @@ a:focus, button:focus {
   outline: 2px var(--primary) dotted;
   outline-offset: 2px;
 }
-article a, .prose a {
-  color: var(--primary);
-  border-bottom: 3px solid;
+main {
+  max-width: 130ch;
 }
-article a:hover, .prose a:hover {
+.page main a {
+  color: var(--primary);
+  /* border-bottom: 3px solid; */
+}
+.page main a:hover {
   color: var(--hover);
   border-bottom: 3px solid;
 }
+.prose a {
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+}
+a.box-link::after {
+  background-color: rgba(95, 179, 179, .15);
+  bottom: -0.33rem;
+  content: '';
+  left: -0.33rem;
+  position: absolute;
+  right: -0.33rem;
+  text-decoration: none;
+  top: -0.33rem;
+  transform: translate(0.75rem, 0.75rem);
+  transform-origin: 100% 100%;
+  transition: transform 0.2s;
+  z-index: -1;
+}
+a.box-link:hover::after {
+  background-color: rgba(197, 165, 197, .15);
+  transform: translate(0, 0);
+}
+.dark a.box-link:hover::after {
+  background-color: rgba(250, 200, 99, .15);
+}
+
 /* ---
   Nav
 --- */
+*[value~='cool']
 .top-level-nav {
   height: theme('spacing.10');
 }
@@ -274,10 +305,11 @@ pre[class*="language-"] {
   background: var(--code-bg);
 }
 .prose :not(pre) > code {
-  padding: 0.1em 0.5em;
+  background: var(--code-bg);
   border-radius: 0.3em;
   color: var(--accent) !important;
-  background: var(--code-bg);
+  font-weight: normal;
+  padding: 0.1em 0.5em;
 }
 .prose code::before, .prose code::after{
   display:none;
@@ -370,6 +402,16 @@ pre[class*="language-"] > code[class*="language-"] {
   pointer-events: none;
   line-height: inherit;
   white-space: pre;
+}
+.multiline {
+  min-height: 400px;
+}
+.multiline > * {
+  box-decoration-break: clone;
+  background-color: var(--bg);
+  color: var(--base);
+  display: inline-block;
+  padding: 0.45rem;
 }
 
 @tailwind utilities;

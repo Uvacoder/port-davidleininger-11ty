@@ -12,6 +12,10 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "./_tmp/style.css": "./style.css" });
 
+  if(process.env.ELEVENTY_ENV === 'development') {
+    eleventyConfig.addPassthroughCopy({ "./src/css/revenge.css": "./revenge.css" });
+  }
+
   eleventyConfig.addPassthroughCopy("src/images");
 
   eleventyConfig.addPassthroughCopy({

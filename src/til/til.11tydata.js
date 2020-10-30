@@ -1,6 +1,6 @@
 module.exports = () => {
   return {
-    layout: 'blog.njk',
+    layout: 'article.njk',
     tags: ['blog', 'til']
   }
 }

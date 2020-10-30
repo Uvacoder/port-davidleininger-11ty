@@ -1,5 +1,3 @@
-// const plugin = require('tailwindcss/plugin')
-
 module.exports = {
   dark: 'class',
   experimental: {
@@ -26,8 +24,9 @@ module.exports = {
         'yellow-dark': '#d68232',
         white: '#fff',
       },
-      inset: {
-        '100': '100%',
+      zIndex: {
+        '-1': '-1',
+        '-2': '-2',
       },
       screens: {
         xs: '450px'
@@ -36,6 +35,7 @@ module.exports = {
     typography: (theme) => ({
       default: {
         css: {
+          color: theme('colors.black-light'),
           h1: {
             color: theme('colors.black'),
             fontWeight: 600,
@@ -46,36 +46,33 @@ module.exports = {
           h3: {
             color: theme('colors.teal'),
           },
-          h4: {
-            color: theme('colors.gray.300'),
+          blockquote: {
+            color: theme('colors.grey-darker'),
           },
-          h5: {
-            color: theme('colors.gray.300'),
-          },
-          h6: {
-            color: theme('colors.gray.300'),
-          },
+          em: {
+            color: theme('colors.grey-darker'),
+          }
         },
       },
       dark: {
         css: {
           color: theme('colors.grey-dark'),
           h1: {
-            color: theme('colors.gray.300'),
+            color: theme('colors.white'),
             fontWeight: 600,
           },
-
-          strong: {
-            color: theme('colors.gray.300'),
+          h2: {
+            color: theme('colors.grey'),
           },
-
-          code: {
-            color: theme('colors.gray.300'),
+          h3: {
+            color: theme('colors.grey'),
           },
-
-          figcaption: {
-            color: theme('colors.gray.500'),
+          blockquote: {
+            color: theme('colors.grey-darker'),
           },
+          em: {
+            color: theme('colors.grey-darker'),
+          }
         },
       },
     }),

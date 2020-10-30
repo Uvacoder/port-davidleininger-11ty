@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy --serve & postcss src/css/style.css --o _tmp/style.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss src/css/style.css --o _site/style.css"
+    "start": "ELEVENTY_ENV=development eleventy --serve & postcss src/css/style.css --o _tmp/style.css --watch",
+    "build": "ELEVENTY_ENV=production ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss src/css/style.css --o _site/style.css"
   },
   "keywords": [],
   "author": "",

@@ -8,6 +8,8 @@ source: https://css-tricks.com/almanac/properties/b/background-repeat/
 
 Background repeat `round` and `space` repeat background images without clipping the images.
 
+> Pro Tip: It really helps if your images are square, round stretches in both directions.
+
 ```css
 background-repeat: round;
 background-repeat: space;

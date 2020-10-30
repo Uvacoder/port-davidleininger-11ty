@@ -2,15 +2,22 @@
 title: leininger.tech
 layout: default
 ---
-
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
 {% block content %}
-  <div class="flex justify-center items-center">
-    <div>
-      <h1 class="text-6xl text-black dark:text-white font-bold yo">Hello, I'm David <div class="say-my-name relative">Leininger</div>.</h1>
-      <h2 class="text-3xl">I design and build things for the internets.</h2>
-      <h3 class="text-lg my-4">I like learning and <s>sometimes</s> hardly ever write about it.</h3>
+  <section class="flex items-center relative z-10 w-full max-w-5xl mx-auto">
+    <div class="multiline flex flex-col justify-center items-start">
+      <h1 class="text-5xl text-black dark:text-white font-bold yo">I'm David <div class="say-my-name relative">Leininger</div>.</h1>
+      <h2 class="text-3xl my-2">I design and build things for the internets.</h2>
+      <h3 class="text-lg my-2">I like learning and <span class="strike">sometimes</span> hardly ever write about it.</h3>
       <p class="text-xs my-2">This is some small text.</p>
     </div>
-  </div>
+    <div class="w-1/2 lg:w-1/3 absolute right-0 -z-1 overflow-hidden">
+      <img src="images/dl-ldott.jpg" class="w-full h-full" alt="headshot.">
+      <div class="h-1 bg-teal w-full absolute bottom-0">
+    </div>
+  </section>
+  <section class="flex justify-center">
+    Here is where I'll put recent posts...
+  </section>
 {% endblock %}
